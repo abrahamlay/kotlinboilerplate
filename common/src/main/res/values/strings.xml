@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Common</string>
+    <string name="movie_cant_be_found">Data can be found</string>
+    <string name="network_error">Cek koneksi internet anda</string>
+    <string name="timeout_error">Koneksi terputus</string>
+    <string name="error_limit_request">Anda tidak dapat mengakses halaman ini</string>
+</resources>

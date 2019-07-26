@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/"'
+        }
+
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/"'
+            testCoverageEnabled true
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+
+    implementation project(':domain')
+
+    //Retrofit Dependencies
+    implementation libs.retrofit
+    implementation libs.rxjava
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation "com.squareup.retrofit2:converter-jackson:$retrofit_version"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+
+    //Dagger Dependencies
+    implementation libs.dagger
+    kapt libs.daggerCompailer
+
+
+    //Testing Dependancies
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.8.47'
+    testImplementation 'org.mockito:mockito-inline:2.8.47'
+    testImplementation 'org.robolectric:robolectric:3.8'
+
+    androidTestImplementation "com.android.support.test:runner:$test_runner_ruler_version"
+    androidTestImplementation "com.android.support.test:rules:$test_runner_ruler_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$test_espresso_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$test_espresso_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$test_espresso_version"
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'org.hamcrest:hamcrest-library:1.3'
+}
