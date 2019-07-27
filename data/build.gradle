@@ -24,7 +24,7 @@ android {
             buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/"'
         }
 
-        debug{
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/"'
@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$android_support_version"
 
     implementation project(':domain')
@@ -48,11 +48,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-jackson:$retrofit_version"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
-
     //Dagger Dependencies
     implementation libs.dagger
     kapt libs.daggerCompailer
-
 
     //Testing Dependancies
     testImplementation 'junit:junit:4.12'

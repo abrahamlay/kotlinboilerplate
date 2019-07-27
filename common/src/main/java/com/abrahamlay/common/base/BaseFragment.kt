@@ -9,7 +9,7 @@ import dagger.android.support.AndroidSupportInjection
  * Created by abraham.lay01 on 7/26/2019.
  */
 @SuppressLint("Registered")
-open class BaseFragment : Fragment(){
+open class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,25 +1,28 @@
 package com.abrahamlay.kotlinboilerplate.movie
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.Toast
 import com.abrahamlay.common.base.BaseListFragment
+import com.abrahamlay.common.constants.Constants
 import com.abrahamlay.domain.entities.MovieModel
+import com.abrahamlay.kotlinboilerplate.detail.DetailActivity
 import javax.inject.Inject
 
 /**
  * Created by abraham.lay01 on 7/26/2019.
  */
-class ListMovieFragment : BaseListFragment(), MovieContract.MoviesView, MovieAdapter.OnClickListener {
+class ListPopularMovieFragment : BaseListFragment(), MovieContract.MoviesView, MovieAdapter.OnClickListener {
     @Inject
-    lateinit var presenter: ListMoviePresenter
+    lateinit var presenter: ListPopularMoviePresenter
 
 
     override fun loadData() {
         showProgressBar(true)
-        presenter.getMovies()
+        presenter.getPopularMovies()
     }
 
     override fun getLayoutManager(): RecyclerView.LayoutManager? {
@@ -49,7 +52,11 @@ class ListMovieFragment : BaseListFragment(), MovieContract.MoviesView, MovieAda
     }
 
     override fun onItemClicked(data: Any) {
-        Toast.makeText(context, (data as MovieModel).title, Toast.LENGTH_SHORT).show()
+        val item = data as MovieModel
+        startActivity(
+            Intent(activity, DetailActivity::class.java)
+                .putExtra(Constants.PARAM_RESULT_ITEM, item)
+        )
     }
 
 }

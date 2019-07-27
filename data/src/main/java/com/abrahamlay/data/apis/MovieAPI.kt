@@ -8,7 +8,11 @@ import retrofit2.http.Query
 /**
  * Created by abraham.lay01 on 7/25/2019.
  */
-interface MovieAPI{
-    @GET("3/discover/movie")
-    fun getMovies(@Query("api_key") apiKey: String): Flowable<MovieResponse>
+interface MovieAPI {
+    @GET("3/movie/popular")
+    fun getPopularMovies(@Query("api_key") apiKey: String): Flowable<MovieResponse>
+
+    @GET("3/movie/top_rated")
+    fun getTopRatedMovies(@Query("api_key") apiKey: String): Flowable<MovieResponse>
+
 }

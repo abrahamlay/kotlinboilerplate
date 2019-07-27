@@ -16,9 +16,9 @@ abstract class UseCase<T, in Params>(private val postExecutionThread: PostExecut
 
     fun execute(subscriber: DisposableSubscriber<T>, params: Params) {
         val disposable = build(params)
-                .subscribeOn(Schedulers.io())
-                .observeOn(postExecutionThread.getScheduler())
-                .subscribeWith(subscriber)
+            .subscribeOn(Schedulers.io())
+            .observeOn(postExecutionThread.getScheduler())
+            .subscribeWith(subscriber)
         addDisposable(disposable)
     }
 

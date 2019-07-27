@@ -1,6 +1,6 @@
 package com.abrahamlay.common.base
 
-interface BasePresenter{
+interface BasePresenter {
     fun resume()
     fun pause()
     fun destroy()

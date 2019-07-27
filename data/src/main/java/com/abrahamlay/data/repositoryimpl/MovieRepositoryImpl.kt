@@ -12,9 +12,9 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class MovieRepositoryImpl @Inject constructor(val api: MovieAPI): MovieRepository {
-    override fun getMovies(apiKey: String): Flowable<List<MovieModel>> =
-        api.getMovies(apiKey).map {
+class MovieRepositoryImpl @Inject constructor(val api: MovieAPI) : MovieRepository {
+    override fun getPopularMovies(apiKey: String): Flowable<List<MovieModel>> =
+        api.getPopularMovies(apiKey).map {
             it.results.map { movie ->
                 MovieModel(
                     movie.voteCount,
@@ -26,7 +26,31 @@ class MovieRepositoryImpl @Inject constructor(val api: MovieAPI): MovieRepositor
                     movie.posterPath,
                     movie.originalLanguage,
                     movie.originalTitle,
-                    movie.genreIds,
+//                    movie.genreIds,
+                    movie.backdropPath,
+                    movie.adult,
+                    movie.overview,
+                    movie.releaseDate
+
+                )
+            }
+        }
+
+
+    override fun getTopRatedMovies(apiKey: String): Flowable<List<MovieModel>> =
+        api.getTopRatedMovies(apiKey).map {
+            it.results.map { movie ->
+                MovieModel(
+                    movie.voteCount,
+                    movie.id,
+                    movie.video,
+                    movie.voteAverage,
+                    movie.originalTitle,
+                    movie.popularity,
+                    movie.posterPath,
+                    movie.originalLanguage,
+                    movie.originalTitle,
+//                    movie.genreIds,
                     movie.backdropPath,
                     movie.adult,
                     movie.overview,

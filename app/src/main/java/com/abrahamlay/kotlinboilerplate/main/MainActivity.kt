@@ -1,12 +1,10 @@
-package com.abrahamlay.kotlinboilerplate
+package com.abrahamlay.kotlinboilerplate.main
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.abrahamlay.common.base.BaseActivity
-import com.abrahamlay.kotlinboilerplate.movie.ListMoviePresenter
-import com.abrahamlay.kotlinboilerplate.movie.MovieTabFragment
-import javax.inject.Inject
+import com.abrahamlay.kotlinboilerplate.R
 
 class MainActivity : BaseActivity() {
 

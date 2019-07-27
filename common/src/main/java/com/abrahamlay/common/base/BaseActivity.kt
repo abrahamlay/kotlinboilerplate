@@ -8,14 +8,14 @@ import android.view.MenuItem
 import dagger.android.AndroidInjection
 
 @SuppressLint("Registered")
-open class BaseActivity: AppCompatActivity(){
+open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
     }
 
 
-    fun replaceFragment(viewId: Int ,fragment: Fragment, addToBackStack: Boolean) {
+    fun replaceFragment(viewId: Int, fragment: Fragment, addToBackStack: Boolean) {
         val ft = supportFragmentManager.beginTransaction()
         ft.setCustomAnimations(
             android.R.anim.fade_in,

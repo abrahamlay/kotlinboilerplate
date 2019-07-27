@@ -1,7 +1,8 @@
 package com.abrahamlay.kotlinboilerplate.di
 
-import com.abrahamlay.kotlinboilerplate.MainActivity
-import com.abrahamlay.kotlinboilerplate.movie.MovieModule
+import com.abrahamlay.kotlinboilerplate.MovieModule
+import com.abrahamlay.kotlinboilerplate.detail.DetailActivity
+import com.abrahamlay.kotlinboilerplate.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,4 +10,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = [(MovieModule::class)])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector(modules = [(MovieModule::class)])
+    abstract fun bindDetailActivity(): DetailActivity
 }

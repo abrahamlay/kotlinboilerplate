@@ -1,12 +1,18 @@
 package com.abrahamlay.domain.entities
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.TypeConverter
 import java.io.Serializable
+
 
 /**
  * Created by abraham.lay01 on 7/25/2019.
  */
-data class MovieModel (
+@Entity
+data class MovieModel(
     var voteCount: Int,
+    @PrimaryKey
     var id: Int,
     var video: Boolean,
     var voteAverage: Double,
@@ -15,9 +21,28 @@ data class MovieModel (
     var posterPath: String?,
     var originalLanguage: String?,
     var originalTitle: String?,
-    var genreIds: List<Int>,
+//    @TypeConverters(Converter::class)
+//    var genreIds: List<Int>,
     var backdropPath: String?,
     var adult: Boolean,
     var overview: String?,
     var releaseDate: String?
-) : Serializable
+) : Serializable {
+
+    inner class Converter {
+
+        @TypeConverter
+        fun stringToList(data: String?): List<Int> {
+            if (data == null) {
+                return listOf()
+            }
+
+            return data.split(",").map { it.toInt() }
+        }
+
+        @TypeConverter
+        fun listToString(list: List<Int>): String {
+            return list.map { it }.joinToString(separator = ",")
+        }
+    }
+}

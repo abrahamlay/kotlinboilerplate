@@ -4,26 +4,26 @@ import com.abrahamlay.common.base.BasePresenter
 import com.abrahamlay.common.constants.Constants
 import com.abrahamlay.domain.DefaultSubscriber
 import com.abrahamlay.domain.entities.MovieModel
-import com.abrahamlay.domain.interactors.GetMovies
+import com.abrahamlay.domain.interactors.GetTopRatedMovies
 import javax.inject.Inject
 
 /**
  * Created by abraham.lay01 on 7/25/2019.
  */
-class ListMoviePresenter @Inject constructor(private val getMovies: GetMovies) : BasePresenter {
+class ListTopRatedMoviePresenter @Inject constructor(private val getTopRatedMovies: GetTopRatedMovies) : BasePresenter {
     lateinit var view: MovieContract.MoviesView
 
 
     override fun resume() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun pause() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun destroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     inner class Subscriber : DefaultSubscriber<List<MovieModel>>() {
@@ -38,7 +38,7 @@ class ListMoviePresenter @Inject constructor(private val getMovies: GetMovies) :
         }
     }
 
-    fun getMovies() {
-        getMovies.execute(Subscriber(), GetMovies.Params(Constants.API_KEY))
+    fun getTopRatedMovies() {
+        getTopRatedMovies.execute(Subscriber(), GetTopRatedMovies.Params(Constants.API_KEY))
     }
 }

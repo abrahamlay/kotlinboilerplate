@@ -12,11 +12,11 @@ import javax.inject.Inject
  * Created by abraham.lay01 on 7/25/2019.
  */
 
-class GetMovies @Inject constructor(
+class GetPopularMovies @Inject constructor(
     private val repository: MovieRepository,
     postExecutionThread: PostExecutionThread
-) : UseCase<List<MovieModel>, GetMovies.Params>(postExecutionThread) {
-    override fun build(params: Params): Flowable<List<MovieModel>> = repository.getMovies(params.apiKey)
+) : UseCase<List<MovieModel>, GetPopularMovies.Params>(postExecutionThread) {
+    override fun build(params: Params): Flowable<List<MovieModel>> = repository.getPopularMovies(params.apiKey)
 
     data class Params(val apiKey: String)
 }

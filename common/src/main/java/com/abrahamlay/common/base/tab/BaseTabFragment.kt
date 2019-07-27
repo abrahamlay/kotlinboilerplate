@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.abrahamlay.common.R
 import com.abrahamlay.common.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_tab.*
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by abraham.lay01 on 7/26/2019.
