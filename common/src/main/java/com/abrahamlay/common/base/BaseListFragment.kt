@@ -62,8 +62,10 @@ abstract class BaseListFragment : BaseFragment(), BaseView, SwipeRefreshLayout.O
     abstract fun getLayoutManager(): RecyclerView.LayoutManager?
 
     open fun showProgressBar(active: Boolean) {
-        progressBarView.let { progressBarView.visibility = if (active) View.VISIBLE else View.GONE }
-        refresh.let { refresh.isRefreshing = active }
+        if (isAdded) {
+            progressBarView.let { progressBarView.visibility = if (active) View.VISIBLE else View.GONE }
+            refresh.let { refresh.isRefreshing = active }
+        }
     }
 
     override fun showEmpty(message: String?) {

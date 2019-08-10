@@ -12,7 +12,7 @@ buildscript {
         retrofit_version = '2.4.0'
         test_espresso_version = '3.0.2'
         test_runner_ruler_version = '1.0.2'
-        liveDataVersion = '1.1.1'
+        room_version = '1.1.1'
 
         libs = [
                 retrofit       : "com.squareup.retrofit2:retrofit:$retrofit_version",
@@ -22,12 +22,15 @@ buildscript {
         ]
 
         support = [
-                appcompat   : "com.android.support:appcompat-v7:$android_support_version",
-                cardview    : "com.android.support:cardview-v7:$android_support_version",
-                constraint  : "com.android.support.constraint:constraint-layout:$android_support_constraint_version",
-                recyclerview: "com.android.support:recyclerview-v7:$android_support_version",
-                support     : "com.android.support:support-v4:$android_support_version",
-                design      : "com.android.support:design:$android_support_version"
+                appcompat       : "com.android.support:appcompat-v7:$android_support_version",
+                cardview        : "com.android.support:cardview-v7:$android_support_version",
+                constraint      : "com.android.support.constraint:constraint-layout:$android_support_constraint_version",
+                recyclerview    : "com.android.support:recyclerview-v7:$android_support_version",
+                support         : "com.android.support:support-v4:$android_support_version",
+                design          : "com.android.support:design:$android_support_version",
+                kotlinextensions: "org.jetbrains.kotlin:kotlin-android-extensions-runtime:$kotlin_version",
+                roomcompiler    : "android.arch.persistence.room:compiler:$room_version",
+                room            : "android.arch.persistence.room:runtime:$room_version"
         ]
     }
     repositories {
