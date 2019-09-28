@@ -2,8 +2,8 @@ package com.abrahamlay.kotlinboilerplate.movie
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import com.abrahamlay.common.base.BaseListFragment
 import com.abrahamlay.common.constants.Constants
@@ -44,7 +44,12 @@ class FavoriteMovieFragment : BaseListFragment(), MovieContract.MoviesView, Movi
     }
 
     override fun getLayoutManager(): RecyclerView.LayoutManager? {
-        return GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+        return GridLayoutManager(
+            context,
+            2,
+            GridLayoutManager.VERTICAL,
+            false
+        )
     }
 
     override fun onItemClicked(data: Any) {

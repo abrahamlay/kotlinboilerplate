@@ -1,7 +1,7 @@
 package com.abrahamlay.kotlinboilerplate.detail
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.*
 import com.abrahamlay.common.base.BaseFragment
 import com.abrahamlay.domain.entities.MovieModel

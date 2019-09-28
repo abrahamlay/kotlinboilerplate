@@ -1,6 +1,6 @@
 package com.abrahamlay.kotlinboilerplate.localdb
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import com.abrahamlay.domain.entities.MovieModel
 
 /**
